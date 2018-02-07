@@ -1,0 +1,74 @@
+/*全局样式*/
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing:border-box;
+}
+html{
+  font-size:100px;
+}
+body{
+	font-size: 0.16rem;
+	font-family:微软雅黑;
+	/*width: 780px;*/
+	margin: 0 auto;
+}
+ul,ol{
+	list-style: none;
+}
+li{
+  cursor:default;
+  background: #eee
+}
+img{
+	border:none;
+}
+a{
+	text-decoration: none;
+	color: #426c3a;
+}
+a:hover{
+	color:#9E2E2E;
+  font-weight: bold;
+}
+textarea,input,a{
+	outline: none;
+}
+textarea{
+	resize: none;
+}
+.clearFloat:after{
+	content: ".";
+	display: block;
+	clear: both;
+	font-size: 0;
+}
+h2{
+  font-size:0.3rem;
+}
+#tabber{
+	height:0.6rem;
+	width:100%;
+	line-height:0.6rem;
+	background:grey;
+	font-size:0.3rem;
+	position:fixed;
+	right:0;
+	bottom:0;
+	display:flex;
+	justify-content:space-around;
+}
+#tabber a{
+	color:#000;
+	text-decoration:none;
+	font-weight:bold;
+	display:block;
+	width: 1.63rem;
+	text-align: center;
+	height: 0.6rem;
+	line-height: 0.6rem;
+}
+#tabber .active{
+	background: orange;
+	color:blue;
+}

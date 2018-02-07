@@ -1,0 +1,14 @@
+  <template>
+  <p><span>首页二暂时没有数据</span></p>
+  </template>
+  <style>
+    p{
+      font-size:0.3rem;
+      color:red;
+      height:0.4rem;
+      line-height:0.4rem;
+      margin-top:1.4rem;
+      display:flex;
+      justify-content:space-around;
+    }
+  </style>
