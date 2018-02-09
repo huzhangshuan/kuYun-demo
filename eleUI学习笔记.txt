@@ -1,0 +1,110 @@
+安装及使用：
+    在项目中安装element-ui组件：npm install element-ui --save
+    在js中引入：import ElementUI from 'element-ui'
+                vue.use(ElementUI)
+    
+    样式文件需要单独引入：import 'element-ui/lib/theme-chalk/index.css'
+
+一、Layout布局
+
+    <el-row></el-row>   //规定行  每一行默认是平均分成24份 :gutter属性确定列与列之间的间隔  默认是0
+    <el-col></el-col>   //规定列 :sapn属性确定每一列所占的份数  :offset 属性可以指定分栏偏移的栏数
+    通过 flex 布局来对分栏进行灵活的对齐
+    <el-row type="flex" justify="start/center/end/space-between/space-around" align="top/middle/bottom"></el-row> 添加type属性、
+    justify属性：元素水平布局方式、align属性：元素垂直布局方向
+
+    混合布局：参照 Bootstrap 的响应式设计，预设了五个响应尺寸：xs、sm、md、lg 和 xl
+
+    基于断点的隐藏类：需要引入：import 'element-ui/lib/theme-chalk/display.css'（在混合式布局的基础上，规定元素在哪种屏幕上进行隐藏）
+
+二、Container布局
+    Contain:用于布局的容器组件，方便快速搭建页面的基本结构
+    <el-container>：外层容器。属性direction:vartical/horizontal当子元素中包含 <el-header> 或 <el-footer> 时，全部子元素会垂直上下排
+  列，否则会水平左右排列。
+    <el-header>：顶栏容器 属性height:默认'60px'
+    <el-aside>：侧边栏容器  属性width:默认‘300px’
+    <el-main>：主要区域容器
+    <el-footer>：底栏容器  属性height:‘默认60px’
+    
+    这些组件的使用，需要确保浏览器兼容flex布局，<el-container> 的子元素只能是后四者，后四者的父元素也只能是 <el-container>
+
+三、Color色彩
+四、字体
+    Font-family代码:
+        font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+
+五、Icon图标
+    提供一套常用的图表集合，直接通过设置类名使用：el-icon-图标名称
+六、Button按钮（<el-button></el-button>）
+    按钮风格：1、普通按钮  默认
+              2、朴素按钮   plain
+              3、圆形按钮   round
+    按钮类型（type）：1、默认   白色
+                      2、主要按钮（primary）  蓝色
+                      3、成功按钮（success）  绿色
+                      4、信息按钮（info）  灰色
+                      5、警告按钮（warning） 橙色
+                      6、危险按钮（danger） 红色
+                      7、文字按钮（text）：没有边框和颜色
+    图标按钮：通过设置icon属性使用：icon:el-icon-图标名称
+    加载中按钮：通过设置 :loading='true'使用
+    按钮禁用状态：用disabled属性来决定按钮是否可用，它接受一个布尔值
+
+七、slider滑块
+	<div class='block'>
+	    <span class='demonstration'>滑块左边的提示信息</span>
+	    <el-slider></el-slider>属性:model='开始位置'可以是一个范围（[4,8] :max='10' range,4-8的范围最大是10） 属性:step=‘每拉一次走多少’ 
+	disabled禁用  show-stops显示间断点 show-input显示输入框 vertical属性但必须设置高度 @change时间  值改变时触发
+        </div>
+八、InputNumber计数器<el-input-number></el-input-number>
+	属性：:min  :max  :disabled :step size(medium small mini) controls-position
+	
+九、Carousel观马灯：<el-carousel></el-carousel><el-carousel-item></el-carousel-item>
+	默认底部指示器hover触发  trigger='click'改为点击触发
+	indicator-position='outside/none'默认是inside，可设置为在外边或者没有
+	arrow属性定义了切换剪头的显示时机默认是鼠标放上去显示  可设置为‘aways/never’
+	type=‘cart’幻灯片为卡片效果
+十、Dialog对话框：<el-dialog></el-dialog>
+	visable属性决定对话框是否显现‘true/false’一般属性后面跟一个.sync
+	title属性用于定义标题，默认为空
+	footer需要具名为footer的solt
+	<el-dialog>标签内可以嵌套任何标签和元素
+	外层dialog还可嵌套内层dialog 内层添加一个append-to-body属性（一般不建议使用）
+十一、Table表格：<el-table></el-table>用data属性注入所要展现的数据
+		stripe规定是否有斑马纹  默认为false，加上即为true
+		border属性设置为带边框的表格，默认没有竖直方向上的边框
+		row-class-name属性为table的每一列添加类名，表明此行的状态‘success-row/warning-row’
+		highlight-current-row属性即可实现单选效果，结合current-change事件使用
+		type属性可以实现表格的多行选择 把type设置成‘selection’即可
+		排序表格和可快速查找表格看API
+	<el-table-column>来规定列表的列 prop属性对应所注入data的键名即可  label属性规定列名
+		<el-table-column>里面嵌套<el-table-column>可以实现多级表头
+		show-overflow-tooltip属性可以解决一个单元格内容过多折行的问题
+十二、Badge标记：<el-badge></el-badge>
+		value属性确定标记的数字，也可以是一个字符串，比如说‘new/hot’
+		也可以设置成一个小红点 只需配置is-dot属性
+		max属性规定最大值，多余这个最大值的用加号表示
+十三、Message消息提示：<el-button></el-button>
+	用法是在按钮上添加click事件，在事件的触发函数里添加this.$message('内容')
+	this.$message({	
+		message:'消息内容',
+		type:'success/warning/error'，设置不同状态，默认是info
+		showClose:'true'默认不可以手动关闭，设置之后可以手动关闭
+	})
+十四、Radio单选框：<el-radio-group>、<el-radio>
+	只需给<el-radio-group>设置v-model属性，给<el-radio>设置:label属性就好了 无需给每一个el-radio绑定变量，label就是用来
+    关联v-model的
+	按钮样式：只需要把<el-radio>换成<el-radio-button>就可以了，这里<el-radio-group>还提供了size属性'medium/small/mini’
+	如果是复选框样式，还带边框，只需要给<el-radio>添加border属性
+十五、Checkbox复选框：<el-checkbox>用v-model绑定变量，单一的checkbox中
+	disabled属性，复选框不可用
+	如果是一组复选框就用<el-checkbox-group>包起来，用v-model绑定一个数组，数组里面的元素即选中复选框的label值
+	
+		
+		
+		
+	
+	
+    
+
+
